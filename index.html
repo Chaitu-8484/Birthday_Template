@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roshii Akka Birthday</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+<div id="wrapper">
+
+    <!-- FLAGS -->
+    <div class="flag__birthday">
+        <img src="./images/1.png" width="350" class="flag__left">
+        <img src="./images/1.png" width="350" class="flag__right">
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+
+        <!-- LEFT -->
+        <div class="left">
+            <div class="title">
+                <h1 class="happy">
+                    <span style="--t:4s;">H</span>
+                    <span style="--t:4.2s;">a</span>
+                    <span style="--t:4.4s;">p</span>
+                    <span style="--t:4.6s;">p</span>
+                    <span style="--t:4.8s;">y</span>
+                </h1>
+
+                <h1 class="birthday">
+                    <span style="--t:5s;">B</span>
+                    <span style="--t:5.2s;">i</span>
+                    <span style="--t:5.4s;">r</span>
+                    <span style="--t:5.6s;">t</span>
+                    <span style="--t:5.8s;">h</span>
+                    <span style="--t:6s;">d</span>
+                    <span style="--t:6.2s;">a</span>
+                    <span style="--t:6.4s;">y</span>
+                </h1>
+
+                <div class="hat">
+                    <img src="./images/hat.png" width="130">
+                </div>
+            </div>
+
+            <div class="date__of__birth">
+                <span></span>
+            </div>
+
+            <div class="btn">
+                <button id="btn__letter">
+                    <div class="mail">
+                        Click Here Roshii Akka 💌
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+            <div class="box__account">
+
+                <div class="image">
+                    <img src="./images/unnamed.png">
+                </div>
+
+                <div class="name">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Dear Roshii Akka</span>
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <div class="balloon_one">
+                    <img width="100px" src="./images/balloon1.png">
+                </div>
+
+                <div class="balloon_two">
+                    <img width="100px" src="./images/balloon2.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LETTER POPUP -->
+    <div class="boxMail">
+        <i class="fa-solid fa-xmark"></i>
+
+        <div class="boxMail-container">
+
+            <div class="card1">
+                <div class="userImg">
+                    <img src="images/unnamed.png">
+                </div>
+
+                <h4>To: Roshii Akka 💖</h4>
+                <h3>Happy Birthday 🎉</h3>
+            </div>
+
+            <div class="card2">
+                <div class="card2-content">
+
+                    <h3>Special Message 💌</h3>
+
+                    <!-- FIXED BUG -->
+                    <div class="text__letter">
+                        <p></p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+let datetxt = "18 April";
+
+let datatxtletter = "Dear Roshii Akka, 💖\n\n" +
+"Happy Birthday Akka! 🎂✨\n\n" +
+"Thank you for always being there for me — like a sister, a friend, and sometimes even like a mom. Your love and support mean so much to me.\n\n" +
+"You are an amazing person who brings happiness and positivity everywhere. I feel really lucky to have you.\n\n" +
+"I wish you lots of happiness, good health, and success in everything you do. I Promise I will make you proud always 💪❤️ \n\n" +
+"May this year bring you success, joy, and all your dreams come true.\n\n" +
+"Stay happy always 😊✨\n\n" +
+"Love you akka 💖";
+
+let charArrDate = datetxt.split('');
+let charArrLetter = datatxtletter.split('');
+
+let date__of__birth = document.querySelector(".date__of__birth span");
+let text__letter = document.querySelector(".text__letter p");
+
+let i = 0;
+let j = 0;
+
+// DATE ANIMATION
+setInterval(() => {
+    if(i < charArrDate.length){
+        date__of__birth.textContent += charArrDate[i];
+        i++;
+    }
+}, 100);
+
+// LETTER CLICK
+document.querySelector(".mail").onclick = function () {
+
+    document.querySelector(".boxMail").classList.add("active");
+
+    let interval = setInterval(() => {
+        if(j < charArrLetter.length){
+            text__letter.textContent += charArrLetter[j];
+            j++;
+        } else {
+            clearInterval(interval);
+        }
+    }, 30);
+};
+
+// CLOSE
+document.querySelector(".fa-xmark").onclick = function () {
+    document.querySelector(".boxMail").classList.remove("active");
+};
+
+</script>
+
+</body>
+</html>
